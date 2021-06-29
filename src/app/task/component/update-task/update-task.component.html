@@ -1,0 +1,63 @@
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+<div>
+  <h4>Update Task</h4>
+  <form (ngSubmit)="updateTask(updateForm)" #updateForm="ngForm">
+    <div class="form-group">
+      <label for="title">Task Name</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        readonly
+        [(ngModel)]="updateData.title"
+        style="width: 400px"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="side">Description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        class="form-control"
+        readonly
+        [(ngModel)]="updateData.description"
+        style="width: 400px"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="side">Due Date</label>
+      <input
+        type="text"
+        id="due_date"
+        name="due_date"
+        class="form-control"
+        readonly
+        [(ngModel)]="updateData.due_date"
+        style="width: 400px"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="side">Status</label>
+      <select
+        class="form-select"
+        id="status"
+        name="status"
+        [(ngModel)]="data.task.status"
+        aria-label="Status Select"
+      >
+        <option value="OPEN">Open</option>
+        <option value="DONE">Done</option>
+      </select>
+    </div>
+    <br />
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button cdkFocusInitial>Update</button>
+  </form>
+</div>

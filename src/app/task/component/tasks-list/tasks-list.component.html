@@ -1,0 +1,33 @@
+<div style="text-align: center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks$ | async">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.due_date }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="openDialogModal(task)">
+            Update
+          </button>
+          <button
+            (click)="deleteTask(task.id)"
+            class="btn btn-danger"
+            style="margin: 5px"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
