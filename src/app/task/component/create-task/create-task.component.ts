@@ -3,6 +3,7 @@ import { createTask } from './../../store/task.actions';
 import { AppState } from './../../../store/reducers/index';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
@@ -23,8 +24,8 @@ export class CreateTaskComponent implements OnInit {
       id: '',
       title: submittedForm.value.title,
       description: submittedForm.value.description,
-      status: submittedForm.value.status,
-      due_date: submittedForm.value.due_date,
+      status: 'OPEN',
+      due_date: moment(submittedForm.value.due_date).format('YYYY-MM-DD'),
     };
     this.store.dispatch(createTask({ task }));
   }

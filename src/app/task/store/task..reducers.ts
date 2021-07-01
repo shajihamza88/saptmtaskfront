@@ -17,7 +17,7 @@ export const taskReducer = createReducer(
   initialState,
 
   on(taskActionTypes.tasksLoaded, (state, action) => {
-    return adapter.addMany(action.tasks, { ...state, tasksLoaded: true });
+    return adapter.setAll(action.tasks, { ...state, tasksLoaded: true });
   }),
 
   on(taskActionTypes.createTask, (state, action) => {

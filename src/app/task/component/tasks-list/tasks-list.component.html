@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <table class="table">
+  <table class="table" *ngIf="tasks$ | async as taskData">
     <thead>
       <tr>
         <th scope="col">Title</th>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of tasks$ | async">
+      <tr *ngFor="let task of taskData">
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.status }}</td>
